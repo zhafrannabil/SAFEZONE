@@ -426,6 +426,19 @@ body{
 
 }
 
+.zoom-provinsi {
+    color: #7dd3fc;
+    text-decoration: underline;
+    text-decoration-color: rgba(125, 211, 252, 0.4);
+    text-underline-offset: 3px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.zoom-provinsi:hover {
+    color: #bae6fd;
+    text-decoration-color: #bae6fd;
+}
 textarea{
 
     width:100%;
