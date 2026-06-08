@@ -4,15 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>SafeZone</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -22,7 +17,17 @@
     <header class="header">
 
         <a href="index.html" class="logo">
-            SAFEZONE
+            <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 3L4 8.5V16C4 22.3 9.4 28.1 16 30C22.6 28.1 28 22.3 28 16V8.5L16 3Z" fill="url(#shieldGrad)" />
+                <path d="M11 16.5L14.5 20L21 13" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                    <linearGradient id="shieldGrad" x1="4" y1="3" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#6AB5E5"/>
+                        <stop offset="100%" stop-color="#2A6FA8"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <span class="logo-text">SAFEZONE</span>
         </a>
 
         <nav class="navbar">
@@ -35,6 +40,22 @@
 
     <!-- HERO -->
     <section class="hero">
+
+        <!-- PHOTO GRID BACKGROUND -->
+        <div class="photo-grid-bg" aria-hidden="true">
+            <div class="photo-cell"><div class="photo-inner" style="background-image:url('https://sitaba.pu.go.id/user/file/2026_06_08_06_49_08.687731_file.jpeg')"></div></div>
+            <div class="photo-cell"><div class="photo-inner" style="background-image:url('https://sitaba.pu.go.id/user/file/2026_06_08_03_32_44.737347_file.jpeg')"></div></div>
+            <div class="photo-cell"><div class="photo-inner" style="background-image:url('https://sitaba.pu.go.id/user/file/2025_01_19_04_13_32.351459_file.png')"></div></div>
+            <div class="photo-cell"><div class="photo-inner" style="background-image:url('https://sitaba.pu.go.id/user/file/2026_06_05_07_08_30.312844_file.png')"></div></div>
+            <div class="photo-cell"><div class="photo-inner" style="background-image:url('https://sitaba.pu.go.id/user/file/2026_06_03_02_18_58.287876_file.jpeg')"></div></div>
+            <div class="photo-cell"><div class="photo-inner" style="background-image:url('https://sitaba.pu.go.id/user/file/2025_01_10_02_59_33.977722_file.png')"></div></div>
+            <div class="photo-cell"><div class="photo-inner" style="background-image:url('https://sitaba.pu.go.id/user/file/2026_05_30_11_04_19.041649_file.jpeg')"></div></div>
+            <div class="photo-cell"><div class="photo-inner" style="background-image:url('https://sitaba.pu.go.id/user/file/2026_05_28_01_22_02.869394_file.jpeg')"></div></div>
+            <div class="photo-cell"><div class="photo-inner" style="background-image:url('https://sitaba.pu.go.id/user/file/2026_05_28_01_04_11.043793_file.jpeg')"></div></div>
+            <div class="photo-cell"><div class="photo-inner" style="background-image:url('https://sitaba.pu.go.id/user/file/2026_05_26_05_09_00.289152_file.png')"></div></div>
+            <div class="photo-cell"><div class="photo-inner" style="background-image:url('https://sitaba.pu.go.id/user/file/2026_05_22_11_23_45.649130_file.jpeg')"></div></div>
+            <div class="photo-cell"><div class="photo-inner" style="background-image:url('https://sitaba.pu.go.id/user/file/2026_05_13_10_04_32.096953_file.png')"></div></div>
+        </div>
 
         <div class="hero-content">
 
@@ -94,37 +115,15 @@
         <div class="features-grid">
 
             <article class="feature-card">
-
-                <span class="feature-number">
-                    01
-                </span>
-
-                <h3>
-                    SafeZone Agent
-                </h3>
-
-                <p>
-                    Ajukan pertanyaan mengenai risiko
-                    bencana Indonesia menggunakan bahasa alami.
-                </p>
-
+                <span class="feature-number">01</span>
+                <h3>SafeZone Agent</h3>
+                <p>Ajukan pertanyaan mengenai risiko bencana Indonesia menggunakan bahasa alami.</p>
             </article>
 
             <article class="feature-card">
-
-                <span class="feature-number">
-                    02
-                </span>
-
-                <h3>
-                    Disaster Analytics
-                </h3>
-
-                <p>
-                    Analisis data historis bencana
-                    secara cepat dan interaktif.
-                </p>
-
+                <span class="feature-number">02</span>
+                <h3>Disaster Analytics</h3>
+                <p>Analisis data historis bencana secara cepat dan interaktif.</p>
             </article>
 
         </div>
@@ -133,17 +132,9 @@
 
     <!-- FOOTER -->
     <footer>
-
-        <div class="footer-logo">
-            SAFEZONE
-        </div>
-
-        <div class="footer-copy">
-            © 2026 SafeZone Platform
-        </div>
-
+        <div class="footer-logo">SAFEZONE</div>
+        <div class="footer-copy">© 2026 SafeZone Platform</div>
     </footer>
 
 </body>
-
 </html>

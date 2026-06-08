@@ -4,15 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>SafeZone Guide</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -21,7 +16,17 @@
     <header class="header">
 
         <a href="index.html" class="logo">
-            SAFEZONE
+            <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 3L4 8.5V16C4 22.3 9.4 28.1 16 30C22.6 28.1 28 22.3 28 16V8.5L16 3Z" fill="url(#shieldGrad3)" />
+                <path d="M11 16.5L14.5 20L21 13" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                    <linearGradient id="shieldGrad3" x1="4" y1="3" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#6AB5E5"/>
+                        <stop offset="100%" stop-color="#2A6FA8"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <span class="logo-text">SAFEZONE</span>
         </a>
 
         <nav class="navbar">
@@ -36,13 +41,9 @@
 
         <div class="guide-card">
 
-            <span class="section-tag">
-                USER GUIDE
-            </span>
+            <span class="section-tag">USER GUIDE</span>
 
-            <h1>
-                How To Use SafeZone
-            </h1>
+            <h1>How To Use SafeZone</h1>
 
             <p>
                 Ikuti langkah berikut untuk menggunakan
@@ -50,31 +51,12 @@
             </p>
 
             <ol>
-
-                <li>
-                    Buka halaman Dashboard.
-                </li>
-
-                <li>
-                    Ketik pertanyaan pada SafeZone Agent.
-                </li>
-
-                <li>
-                    Atau pilih salah satu prompt yang tersedia.
-                </li>
-
-                <li>
-                    Klik tombol Analisis.
-                </li>
-
-                <li>
-                    Hasil analisis akan muncul pada panel Answer.
-                </li>
-
-                <li>
-                    Nantinya peta akan menyesuaikan hasil analisis.
-                </li>
-
+                <li>Buka halaman Dashboard.</li>
+                <li>Ketik pertanyaan pada SafeZone Agent.</li>
+                <li>Atau pilih salah satu prompt yang tersedia.</li>
+                <li>Klik tombol Analisis.</li>
+                <li>Hasil analisis akan muncul pada panel Answer.</li>
+                <li>Nantinya peta akan menyesuaikan hasil analisis.</li>
             </ol>
 
         </div>
@@ -82,5 +64,4 @@
     </section>
 
 </body>
-
 </html>

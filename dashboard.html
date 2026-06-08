@@ -4,15 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>SafeZone Dashboard</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -22,7 +17,17 @@
     <header class="header">
 
         <a href="index.html" class="logo">
-            SAFEZONE
+            <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 3L4 8.5V16C4 22.3 9.4 28.1 16 30C22.6 28.1 28 22.3 28 16V8.5L16 3Z" fill="url(#shieldGrad2)" />
+                <path d="M11 16.5L14.5 20L21 13" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                    <linearGradient id="shieldGrad2" x1="4" y1="3" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#6AB5E5"/>
+                        <stop offset="100%" stop-color="#2A6FA8"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <span class="logo-text">SAFEZONE</span>
         </a>
 
         <nav class="navbar">
@@ -38,29 +43,20 @@
 
         <!-- MAP -->
         <section class="map-section">
-
             <div class="map-placeholder">
                 <div class="map-frame">
-                    <iframe 
-                        src="map/map.html"
-                        class="map-iframe"
-                    ></iframe>
+                    <iframe src="map/map.html" class="map-iframe"></iframe>
                 </div>
             </div>
-
         </section>
 
         <!-- SIDEBAR -->
         <aside class="sidebar">
 
             <!-- ASK CARD -->
-            <div
-                class="chat-card"
-                id="ask-card">
+            <div class="chat-card" id="ask-card">
 
-                <h3>
-                    SafeZone Agent
-                </h3>
+                <h3>SafeZone Agent</h3>
 
                 <p class="card-subtitle">
                     Tanyakan sesuatu mengenai risiko bencana.
@@ -73,60 +69,59 @@
 
                 <div class="prompt-grid">
 
-                    <button
-                        type="button"
-                        onclick="askPrompt(this)">
+                    <button type="button" onclick="askPrompt(this)">
                         Apa risiko bencana di Jawa Tengah bulan Agustus?
                     </button>
 
-                    <button
-                        type="button"
-                        onclick="askPrompt(this)">
+                    <button type="button" onclick="askPrompt(this)">
                         Daerah mana yang paling berbahaya?
                     </button>
 
-                    <button
-                        type="button"
-                        onclick="askPrompt(this)">
+                    <button type="button" onclick="askPrompt(this)">
                         Berapa banyak bencana per bulan?
+                    </button>
+
+                    <button type="button" onclick="askPrompt(this)">
+                        Provinsi mana yang paling sering banjir?
+                    </button>
+
+                    <button type="button" onclick="askPrompt(this)">
+                        Kapan puncak musim bencana di Indonesia?
+                    </button>
+
+                    <button type="button" onclick="askPrompt(this)">
+                        Wilayah mana yang rawan gempa bumi?
+                    </button>
+
+                    <button type="button" onclick="askPrompt(this)">
+                        Bagaimana tren bencana 5 tahun terakhir?
+                    </button>
+
+                    <button type="button" onclick="askPrompt(this)">
+                        Daerah paling aman dari bencana di Indonesia?
+                    </button>
+
+                    <button type="button" onclick="askPrompt(this)">
+                        Apa bencana paling mematikan di Indonesia?
                     </button>
 
                 </div>
 
-                <button
-                    class="send-btn"
-                    onclick="sendQuestion()">
-
+                <button class="send-btn" onclick="sendQuestion()">
                     Analisis
-
                 </button>
 
             </div>
 
             <!-- ANSWER CARD -->
-            <div
-                class="answer-card hidden"
-                id="answer-card">
+            <div class="answer-card hidden" id="answer-card">
 
                 <div class="answer-header">
-
-                    <h3>
-                        Analysis Result
-                    </h3>
-
-                    <button
-                        class="close-answer"
-                        onclick="closeAnswer()">
-
-                        ✕
-
-                    </button>
-
+                    <h3>Analysis Result</h3>
+                    <button class="close-answer" onclick="closeAnswer()">✕</button>
                 </div>
 
-                <div id="answer-content">
-
-                </div>
+                <div id="answer-content"></div>
 
             </div>
 
@@ -137,5 +132,4 @@
     <script src="js/app.js"></script>
 
 </body>
-
 </html>
