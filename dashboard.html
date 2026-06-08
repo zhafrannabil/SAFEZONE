@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SafeZone Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            SAFEZONE
+        </a>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="guide.html">Guide</a>
+        </nav>
+
+    </header>
+
+    <!-- DASHBOARD -->
+    <main class="dashboard-layout">
+
+        <!-- MAP -->
+        <section class="map-section">
+
+            <div class="map-placeholder">
+
+                <div class="placeholder-content">
+
+                    <span class="section-tag">
+                        WEBGIS MODULE
+                    </span>
+
+                    <h2>
+                        Interactive Disaster Map
+                    </h2>
+
+                    <p>
+                        Peta interaktif akan ditampilkan di sini.
+                    </p>
+
+                    <p class="placeholder-small">
+                        Placeholder sementara sampai
+                        Folium / Leaflet selesai dibuat.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <!-- ASK CARD -->
+            <div
+                class="chat-card"
+                id="ask-card">
+
+                <h3>
+                    SafeZone Agent
+                </h3>
+
+                <p class="card-subtitle">
+                    Tanyakan sesuatu mengenai risiko bencana.
+                </p>
+
+                <textarea
+                    id="question"
+                    placeholder="Contoh: Provinsi paling rawan bencana di Indonesia?"
+                ></textarea>
+
+                <div class="prompt-grid">
+
+                    <button
+                        type="button"
+                        onclick="askPrompt(this)">
+                        Apa risiko bencana di Jawa Tengah bulan Agustus?
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="askPrompt(this)">
+                        Daerah mana yang paling berbahaya?
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="askPrompt(this)">
+                        Berapa banyak bencana per bulan?
+                    </button>
+
+                </div>
+
+                <button
+                    class="send-btn"
+                    onclick="sendQuestion()">
+
+                    Analisis
+
+                </button>
+
+            </div>
+
+            <!-- ANSWER CARD -->
+            <div
+                class="answer-card hidden"
+                id="answer-card">
+
+                <div class="answer-header">
+
+                    <h3>
+                        Analysis Result
+                    </h3>
+
+                    <button
+                        class="close-answer"
+                        onclick="closeAnswer()">
+
+                        ✕
+
+                    </button>
+
+                </div>
+
+                <div id="answer-content">
+
+                </div>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
