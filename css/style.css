@@ -410,6 +410,20 @@ textarea:focus{
     box-shadow:0 0 0 3px rgba(79,163,217,0.08);
 }
 
+.zoom-provinsi {
+    color: #7dd3fc;
+    text-decoration: underline;
+    text-decoration-color: rgba(125, 211, 252, 0.4);
+    text-underline-offset: 3px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.zoom-provinsi:hover {
+    color: #bae6fd;
+    text-decoration-color: #bae6fd;
+}
+
 /* PROMPT GRID — scrollable */
 
 .prompt-grid{
