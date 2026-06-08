@@ -336,50 +336,48 @@ body{
 }
 
 .map-placeholder{
-
     height:calc(100vh - 128px);
-
     border-radius:24px;
-
     background:
     linear-gradient(
         135deg,
-        #223044,
-        #18212F
+        var(--surface) 100%,
+        var(--bg) 100%
     );
 
     border:1px solid var(--border);
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     text-align:center;
 
+    padding:16px; /* 🔥 ini kunci simetri */
+    box-sizing: border-box;
 }
 
-.placeholder-content h2{
+.map-frame{
+    width:100%;
+    height:100%;
 
-    margin:16px 0;
+    background: var(--surface); /* 🔥 SAMA dengan answer-card */
+    border:1px solid var(--border);
 
-    font-size:2rem;
+    border-radius:20px;
 
+    box-shadow: 0 6px 18px rgba(0,0,0,.2);
+
+    overflow:hidden;
+
+    display:flex;
 }
 
-.placeholder-content p{
-
-    color:var(--muted);
-
-}
-
-.placeholder-small{
-
-    margin-top:12px;
-
-    font-size:.9rem;
-
+.map-iframe{
+    width:100%;
+    height:100%;
+    border:none;
+    border-radius:20px;
 }
 
 .sidebar{
