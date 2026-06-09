@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -17,15 +17,24 @@
     <header class="header">
 
         <a href="index.html" class="logo">
-            <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 3L4 8.5V16C4 22.3 9.4 28.1 16 30C22.6 28.1 28 22.3 28 16V8.5L16 3Z" fill="url(#shieldGrad)" />
-                <path d="M11 16.5L14.5 20L21 13" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <defs>
-                    <linearGradient id="shieldGrad" x1="4" y1="3" x2="28" y2="30" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stop-color="#6AB5E5"/>
-                        <stop offset="100%" stop-color="#2A6FA8"/>
-                    </linearGradient>
-                </defs>
+            <!-- Logo PU: persegi dengan roda gigi dan 3 batang vertikal -->
+            <img src="assets/logo-pu.png" class="logo-icon" alt="Logo PU">
+                <rect width="40" height="40" rx="6" fill="#374774"/>
+                <rect x="1" y="1" width="38" height="38" rx="5" fill="none" stroke="#EAB630" stroke-width="1.5"/>
+                <g fill="#EAB630">
+                    <rect x="18" y="3"  width="4" height="5" rx="1"/>
+                    <rect x="18" y="32" width="4" height="5" rx="1"/>
+                    <rect x="3"  y="18" width="5" height="4" rx="1"/>
+                    <rect x="32" y="18" width="5" height="4" rx="1"/>
+                    <rect x="8.5"  y="7"   width="3.5" height="3.5" rx="0.8" transform="rotate(45 10.25 8.75)"/>
+                    <rect x="28"   y="7"   width="3.5" height="3.5" rx="0.8" transform="rotate(45 29.75 8.75)"/>
+                    <rect x="8.5"  y="29"  width="3.5" height="3.5" rx="0.8" transform="rotate(45 10.25 30.75)"/>
+                    <rect x="28"   y="29"  width="3.5" height="3.5" rx="0.8" transform="rotate(45 29.75 30.75)"/>
+                </g>
+                <circle cx="20" cy="20" r="9" fill="#374774" stroke="#EAB630" stroke-width="1.2"/>
+                <rect x="15.5" y="14" width="2.5" height="12" rx="1" fill="#EAB630"/>
+                <rect x="19"   y="12" width="2.5" height="16" rx="1" fill="#EAB630"/>
+                <rect x="22.5" y="15" width="2.5" height="10" rx="1" fill="#EAB630"/>
             </svg>
             <span class="logo-text">SAFEZONE</span>
         </a>
@@ -41,7 +50,7 @@
     <!-- HERO -->
     <section class="hero">
 
-        <!-- PHOTO GRID BACKGROUND -->
+        <!-- PHOTO GRID BACKGROUND — foto dari sitaba.pu.go.id dipertahankan -->
         <div class="photo-grid-bg" aria-hidden="true">
             <div class="photo-cell"><div class="photo-inner" style="background-image:url('https://sitaba.pu.go.id/user/file/2026_06_08_06_49_08.687731_file.jpeg')"></div></div>
             <div class="photo-cell"><div class="photo-inner" style="background-image:url('https://sitaba.pu.go.id/user/file/2026_06_08_03_32_44.737347_file.jpeg')"></div></div>
@@ -68,23 +77,15 @@
                 Risk Analytics
             </h1>
 
-            <p>
-                Analisis risiko bencana Indonesia menggunakan
-                Artificial Intelligence, Machine Learning,
-                dan data historis untuk membantu pengambilan
-                keputusan berbasis data.
+            <p class="hero-desc">
+                Analyze Indonesia's disaster risk using Artificial Intelligence,
+                Machine Learning, and historical data to support
+                evidence-based decision making.
             </p>
 
             <div class="hero-buttons">
-
-                <a href="dashboard.html" class="btn-primary">
-                    Open Dashboard
-                </a>
-
-                <a href="guide.html" class="btn-secondary">
-                    Learn More
-                </a>
-
+                <a href="dashboard.html" class="btn-primary">Open Dashboard</a>
+                <a href="guide.html" class="btn-secondary">Learn More</a>
             </div>
 
         </div>
@@ -95,21 +96,12 @@
     <section class="features-section">
 
         <div class="section-header">
-
-            <span class="section-tag">
-                FEATURES
-            </span>
-
-            <h2>
-                Satu Platform Untuk Analisis Kebencanaan
-            </h2>
-
+            <span class="section-tag">FEATURES</span>
+            <h2>One Platform for Disaster Analysis</h2>
             <p>
-                SafeZone menggabungkan visualisasi spasial dan
-                AI Assistant untuk membantu memahami risiko
-                bencana di Indonesia.
+                SafeZone combines spatial visualization and an AI Assistant
+                to help understand disaster risk across Indonesia.
             </p>
-
         </div>
 
         <div class="features-grid">
@@ -117,13 +109,13 @@
             <article class="feature-card">
                 <span class="feature-number">01</span>
                 <h3>SafeZone Agent</h3>
-                <p>Ajukan pertanyaan mengenai risiko bencana Indonesia menggunakan bahasa alami.</p>
+                <p>Ask questions about Indonesia's disaster risk in natural language.</p>
             </article>
 
             <article class="feature-card">
                 <span class="feature-number">02</span>
                 <h3>Disaster Analytics</h3>
-                <p>Analisis data historis bencana secara cepat dan interaktif.</p>
+                <p>Quickly and interactively analyze historical disaster data.</p>
             </article>
 
         </div>

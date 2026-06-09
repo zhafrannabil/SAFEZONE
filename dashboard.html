@@ -17,15 +17,23 @@
     <header class="header">
 
         <a href="index.html" class="logo">
-            <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 3L4 8.5V16C4 22.3 9.4 28.1 16 30C22.6 28.1 28 22.3 28 16V8.5L16 3Z" fill="url(#shieldGrad2)" />
-                <path d="M11 16.5L14.5 20L21 13" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <defs>
-                    <linearGradient id="shieldGrad2" x1="4" y1="3" x2="28" y2="30" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stop-color="#6AB5E5"/>
-                        <stop offset="100%" stop-color="#2A6FA8"/>
-                    </linearGradient>
-                </defs>
+            <img src="assets/logo-pu.png" class="logo-icon" alt="Logo PU">
+                <rect width="40" height="40" rx="6" fill="#374774"/>
+                <rect x="1" y="1" width="38" height="38" rx="5" fill="none" stroke="#EAB630" stroke-width="1.5"/>
+                <g fill="#EAB630">
+                    <rect x="18" y="3"  width="4" height="5" rx="1"/>
+                    <rect x="18" y="32" width="4" height="5" rx="1"/>
+                    <rect x="3"  y="18" width="5" height="4" rx="1"/>
+                    <rect x="32" y="18" width="5" height="4" rx="1"/>
+                    <rect x="8.5"  y="7"   width="3.5" height="3.5" rx="0.8" transform="rotate(45 10.25 8.75)"/>
+                    <rect x="28"   y="7"   width="3.5" height="3.5" rx="0.8" transform="rotate(45 29.75 8.75)"/>
+                    <rect x="8.5"  y="29"  width="3.5" height="3.5" rx="0.8" transform="rotate(45 10.25 30.75)"/>
+                    <rect x="28"   y="29"  width="3.5" height="3.5" rx="0.8" transform="rotate(45 29.75 30.75)"/>
+                </g>
+                <circle cx="20" cy="20" r="9" fill="#374774" stroke="#EAB630" stroke-width="1.2"/>
+                <rect x="15.5" y="14" width="2.5" height="12" rx="1" fill="#EAB630"/>
+                <rect x="19"   y="12" width="2.5" height="16" rx="1" fill="#EAB630"/>
+                <rect x="22.5" y="15" width="2.5" height="10" rx="1" fill="#EAB630"/>
             </svg>
             <span class="logo-text">SAFEZONE</span>
         </a>
@@ -56,7 +64,19 @@
             <!-- ASK CARD -->
             <div class="chat-card" id="ask-card">
 
-                <h3>SafeZone Agent</h3>
+                <h3 class="agent-title">
+                    <!-- Robot icon (MIT - Heroicons) -->
+                    <svg class="robot-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="5" y="9" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/>
+                        <rect x="9" y="13" width="2" height="2" rx="0.5" fill="currentColor"/>
+                        <rect x="13" y="13" width="2" height="2" rx="0.5" fill="currentColor"/>
+                        <path d="M9 19v2M15 19v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M12 9V6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <circle cx="12" cy="5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M5 13H3M21 13h-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                    SafeZone Agent
+                </h3>
 
                 <p class="card-subtitle">
                     Tanyakan sesuatu mengenai risiko bencana.
@@ -67,44 +87,28 @@
                     placeholder="Contoh: Provinsi paling rawan bencana di Indonesia?"
                 ></textarea>
 
-                <div class="prompt-grid">
-
-                    <button type="button" onclick="askPrompt(this)">
-                        Apa risiko bencana di Jawa Tengah bulan Agustus?
-                    </button>
-
-                    <button type="button" onclick="askPrompt(this)">
-                        Daerah mana yang paling berbahaya?
-                    </button>
-
-                    <button type="button" onclick="askPrompt(this)">
-                        Berapa banyak bencana per bulan?
-                    </button>
-
-                    <button type="button" onclick="askPrompt(this)">
-                        Provinsi mana yang paling sering banjir?
-                    </button>
-
-                    <button type="button" onclick="askPrompt(this)">
-                        Kapan puncak musim bencana di Indonesia?
-                    </button>
-
-                    <button type="button" onclick="askPrompt(this)">
-                        Wilayah mana yang rawan gempa bumi?
-                    </button>
-
-                    <button type="button" onclick="askPrompt(this)">
-                        Bagaimana tren bencana 5 tahun terakhir?
-                    </button>
-
-                    <button type="button" onclick="askPrompt(this)">
-                        Daerah paling aman dari bencana di Indonesia?
-                    </button>
-
-                    <button type="button" onclick="askPrompt(this)">
-                        Apa bencana paling mematikan di Indonesia?
-                    </button>
-
+                <!-- DROPDOWN -->
+                <div class="dropdown-wrapper">
+                    <label class="dropdown-label">Atau pilih pertanyaan:</label>
+                    <div class="custom-select">
+                        <select id="prompt-select" onchange="selectPrompt(this)">
+                            <option value="">— Pilih pertanyaan —</option>
+                            <option>Apa risiko bencana di Jawa Tengah bulan Agustus?</option>
+                            <option>Daerah mana yang paling berbahaya?</option>
+                            <option>Berapa banyak bencana per bulan?</option>
+                            <option>Provinsi mana yang paling sering banjir?</option>
+                            <option>Kapan puncak musim bencana di Indonesia?</option>
+                            <option>Wilayah mana yang rawan gempa bumi?</option>
+                            <option>Bagaimana tren bencana 5 tahun terakhir?</option>
+                            <option>Daerah paling aman dari bencana di Indonesia?</option>
+                            <option>Apa bencana paling mematikan di Indonesia?</option>
+                        </select>
+                        <span class="select-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </span>
+                    </div>
                 </div>
 
                 <button class="send-btn" onclick="sendQuestion()">
