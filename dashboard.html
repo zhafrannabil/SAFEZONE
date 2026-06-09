@@ -13,28 +13,9 @@
 
 <body>
 
-    <!-- HEADER -->
     <header class="header">
-
         <a href="index.html" class="logo">
             <img src="assets/logo-pu.png" class="logo-icon" alt="Logo PU">
-                <rect width="40" height="40" rx="6" fill="#374774"/>
-                <rect x="1" y="1" width="38" height="38" rx="5" fill="none" stroke="#EAB630" stroke-width="1.5"/>
-                <g fill="#EAB630">
-                    <rect x="18" y="3"  width="4" height="5" rx="1"/>
-                    <rect x="18" y="32" width="4" height="5" rx="1"/>
-                    <rect x="3"  y="18" width="5" height="4" rx="1"/>
-                    <rect x="32" y="18" width="5" height="4" rx="1"/>
-                    <rect x="8.5"  y="7"   width="3.5" height="3.5" rx="0.8" transform="rotate(45 10.25 8.75)"/>
-                    <rect x="28"   y="7"   width="3.5" height="3.5" rx="0.8" transform="rotate(45 29.75 8.75)"/>
-                    <rect x="8.5"  y="29"  width="3.5" height="3.5" rx="0.8" transform="rotate(45 10.25 30.75)"/>
-                    <rect x="28"   y="29"  width="3.5" height="3.5" rx="0.8" transform="rotate(45 29.75 30.75)"/>
-                </g>
-                <circle cx="20" cy="20" r="9" fill="#374774" stroke="#EAB630" stroke-width="1.2"/>
-                <rect x="15.5" y="14" width="2.5" height="12" rx="1" fill="#EAB630"/>
-                <rect x="19"   y="12" width="2.5" height="16" rx="1" fill="#EAB630"/>
-                <rect x="22.5" y="15" width="2.5" height="10" rx="1" fill="#EAB630"/>
-            </svg>
             <span class="logo-text">SAFEZONE</span>
         </a>
 
@@ -43,13 +24,10 @@
             <a href="dashboard.html" class="active">Dashboard</a>
             <a href="guide.html">Guide</a>
         </nav>
-
     </header>
 
-    <!-- DASHBOARD -->
     <main class="dashboard-layout">
 
-        <!-- MAP -->
         <section class="map-section">
             <div class="map-placeholder">
                 <div class="map-frame">
@@ -58,14 +36,11 @@
             </div>
         </section>
 
-        <!-- SIDEBAR -->
         <aside class="sidebar">
 
-            <!-- ASK CARD -->
             <div class="chat-card" id="ask-card">
 
                 <h3 class="agent-title">
-                    <!-- Robot icon (MIT - Heroicons) -->
                     <svg class="robot-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="5" y="9" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/>
                         <rect x="9" y="13" width="2" height="2" rx="0.5" fill="currentColor"/>
@@ -84,31 +59,96 @@
 
                 <textarea
                     id="question"
-                    placeholder="Contoh: Provinsi paling rawan bencana di Indonesia?"
+                    placeholder="Contoh: Provinsi mana yang paling rawan bencana?"
                 ></textarea>
 
-                <!-- DROPDOWN -->
-                <div class="dropdown-wrapper">
-                    <label class="dropdown-label">Atau pilih pertanyaan:</label>
-                    <div class="custom-select">
-                        <select id="prompt-select" onchange="selectPrompt(this)">
-                            <option value="">— Pilih pertanyaan —</option>
-                            <option>Apa risiko bencana di Jawa Tengah bulan Agustus?</option>
-                            <option>Daerah mana yang paling berbahaya?</option>
-                            <option>Berapa banyak bencana per bulan?</option>
-                            <option>Provinsi mana yang paling sering banjir?</option>
-                            <option>Kapan puncak musim bencana di Indonesia?</option>
-                            <option>Wilayah mana yang rawan gempa bumi?</option>
-                            <option>Bagaimana tren bencana 5 tahun terakhir?</option>
-                            <option>Daerah paling aman dari bencana di Indonesia?</option>
-                            <option>Apa bencana paling mematikan di Indonesia?</option>
-                        </select>
-                        <span class="select-arrow">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"/>
-                            </svg>
-                        </span>
+                <div class="dropdown-group">
+                    
+                    <div class="dropdown-wrapper">
+                        <label class="dropdown-label">Atau pilih pertanyaan:</label>
+                        <div class="custom-select">
+                            <select id="prompt-select" onchange="handlePromptSelect()">
+                                <option value="">— Pilih pertanyaan —</option>
+                                <option value="Bencana apa yang paling berisiko di [PROVINSI]?">Risiko di provinsi tertentu</option>
+                                <option value="Risiko apa di [PROVINSI]?">Detail risiko per provinsi</option>
+                                <option value="Provinsi mana yang paling rawan?">Provinsi paling rawan</option>
+                                <option value="Kabupaten/kota mana paling rawan?">Kota/Kabupaten paling rawan</option>
+                                <option value="Urutkan tahun paling banyak bencana?">Urutan tahun bencana</option>
+                                <option value="Risiko bencana apa yang paling sering terjadi?">Bencana paling sering</option>
+                                <option value="Berapa banyak kejadian bencana tahun [TAHUN]?">Jumlah bencana tahun spesifik</option>
+                                <option value="Pada tahun [TAHUN] apa jenis bencana yang paling berisiko?">Risiko bencana tahun spesifik</option>
+                                <option value="List apa saja nama bencana di indonesia?">Daftar semua jenis bencana</option>
+                            </select>
+                            <span class="select-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </div>
                     </div>
+
+                    <div class="dropdown-wrapper hidden" id="prov-wrapper">
+                        <label class="dropdown-label">Pilih Provinsi:</label>
+                        <div class="custom-select">
+                            <select id="prov-select" onchange="buildQuestion()">
+                                <option value="">— Pilih —</option>
+                                <option value="Aceh">Aceh</option>
+                                <option value="Bali">Bali</option>
+                                <option value="Banten">Banten</option>
+                                <option value="Bengkulu">Bengkulu</option>
+                                <option value="DI Yogyakarta">DI Yogyakarta</option>
+                                <option value="DKI Jakarta">DKI Jakarta</option>
+                                <option value="Gorontalo">Gorontalo</option>
+                                <option value="Jambi">Jambi</option>
+                                <option value="Jawa Barat">Jawa Barat</option>
+                                <option value="Jawa Tengah">Jawa Tengah</option>
+                                <option value="Jawa Timur">Jawa Timur</option>
+                                <option value="Kalimantan Barat">Kalimantan Barat</option>
+                                <option value="Kalimantan Selatan">Kalimantan Selatan</option>
+                                <option value="Kalimantan Tengah">Kalimantan Tengah</option>
+                                <option value="Kalimantan Timur">Kalimantan Timur</option>
+                                <option value="Kalimantan Utara">Kalimantan Utara</option>
+                                <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
+                                <option value="Kepulauan Riau">Kepulauan Riau</option>
+                                <option value="Lampung">Lampung</option>
+                                <option value="Maluku">Maluku</option>
+                                <option value="Maluku Utara">Maluku Utara</option>
+                                <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+                                <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
+                                <option value="Papua">Papua</option>
+                                <option value="Papua Barat">Papua Barat</option>
+                                <option value="Papua Barat Daya">Papua Barat Daya</option>
+                                <option value="Papua Pegunungan">Papua Pegunungan</option>
+                                <option value="Papua Selatan">Papua Selatan</option>
+                                <option value="Papua Tengah">Papua Tengah</option>
+                                <option value="Riau">Riau</option>
+                                <option value="Sulawesi Barat">Sulawesi Barat</option>
+                                <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                                <option value="Sulawesi Tengah">Sulawesi Tengah</option>
+                                <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+                                <option value="Sulawesi Utara">Sulawesi Utara</option>
+                                <option value="Sumatera Barat">Sumatera Barat</option>
+                                <option value="Sumatera Selatan">Sumatera Selatan</option>
+                                <option value="Sumatera Utara">Sumatera Utara</option>
+                            </select>
+                            <span class="select-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-wrapper hidden" id="tahun-wrapper">
+                        <label class="dropdown-label">Pilih Tahun:</label>
+                        <div class="custom-select">
+                            <select id="tahun-select" onchange="buildQuestion()">
+                                <option value="">— Pilih —</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                            </select>
+                            <span class="select-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </div>
+                    </div>
+
                 </div>
 
                 <button class="send-btn" onclick="sendQuestion()">
@@ -117,16 +157,12 @@
 
             </div>
 
-            <!-- ANSWER CARD -->
             <div class="answer-card hidden" id="answer-card">
-
                 <div class="answer-header">
                     <h3>Analysis Result</h3>
                     <button class="close-answer" onclick="closeAnswer()">✕</button>
                 </div>
-
                 <div id="answer-content"></div>
-
             </div>
 
         </aside>

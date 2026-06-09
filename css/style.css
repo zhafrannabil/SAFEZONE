@@ -514,6 +514,22 @@ textarea:focus{
 }
 
 /* ============================
+   DYNAMIC DROPDOWN GROUP
+   ============================ */
+
+.dropdown-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 14px 0;
+    flex-shrink: 0;
+}
+
+.dropdown-group .dropdown-wrapper {
+    margin: 0; /* Menghilangkan margin bawaan agar tidak saling menumpuk dan terlalu lebar */
+}
+
+/* ============================
    SEND BUTTON
    ============================ */
 

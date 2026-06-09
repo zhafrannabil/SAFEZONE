@@ -1,7 +1,8 @@
 async function sendQuestion(){
     const q = document.getElementById("question").value.trim();
     
-    if(q === ""){
+    if(q === "" || q.includes("...")){
+        alert("Harap lengkapi pertanyaan Anda (pilih tahun/provinsi).");
         return;
     }
 
@@ -12,7 +13,6 @@ async function sendQuestion(){
     answer.innerHTML = "Menganalisis data...";
 
     try{
-        // URL dikembalikan ke alamat absolut backend Flask
         const response = await fetch("http://localhost:5000/api/chat", {
             method:"POST",
             headers:{
@@ -30,10 +30,61 @@ async function sendQuestion(){
     }
 }
 
-function selectPrompt(select){
-    if(select.value !== ""){
-        document.getElementById("question").value = select.value;
+// Menangani kemunculan dropdown tahun dan provinsi
+function handlePromptSelect() {
+    const prompt = document.getElementById("prompt-select").value;
+    const provWrapper = document.getElementById("prov-wrapper");
+    const tahunWrapper = document.getElementById("tahun-wrapper");
+    const provSelect = document.getElementById("prov-select");
+    const tahunSelect = document.getElementById("tahun-select");
+
+    // Reset isian sub-dropdown
+    provSelect.value = "";
+    tahunSelect.value = "";
+
+    // Sembunyikan kembali
+    provWrapper.classList.add("hidden");
+    tahunWrapper.classList.add("hidden");
+
+    // Tampilkan jika tag terdeteksi
+    if (prompt.includes("[PROVINSI]")) {
+        provWrapper.classList.remove("hidden");
     }
+    if (prompt.includes("[TAHUN]")) {
+        tahunWrapper.classList.remove("hidden");
+    }
+    
+    buildQuestion();
+}
+
+// Merangkai kalimat akhir berdasarkan pilihan dropdown
+function buildQuestion() {
+    let prompt = document.getElementById("prompt-select").value;
+    const prov = document.getElementById("prov-select").value;
+    const tahun = document.getElementById("tahun-select").value;
+
+    if (!prompt) {
+        document.getElementById("question").value = "";
+        return;
+    }
+
+    if (prompt.includes("[PROVINSI]")) {
+        if (prov !== "") {
+            prompt = prompt.replace("[PROVINSI]", prov);
+        } else {
+            prompt = prompt.replace("[PROVINSI]", "..."); // visual cue jika belum dipilih
+        }
+    }
+    
+    if (prompt.includes("[TAHUN]")) {
+        if (tahun !== "") {
+            prompt = prompt.replace("[TAHUN]", tahun);
+        } else {
+            prompt = prompt.replace("[TAHUN]", "..."); // visual cue jika belum dipilih
+        }
+    }
+
+    document.getElementById("question").value = prompt;
 }
 
 function closeAnswer(){
@@ -41,10 +92,11 @@ function closeAnswer(){
     document.getElementById("ask-card").classList.remove("hidden");
     document.getElementById("question").value = "";
 
-    // Reset dropdown jika ada
+    // Reset semua dropdown ke state awal
     const promptSelect = document.getElementById("prompt-select");
     if(promptSelect){
         promptSelect.value = "";
+        handlePromptSelect(); // Trigger fungsi agar sub-dropdown tersembunyi
     }
 }
 
