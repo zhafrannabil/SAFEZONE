@@ -603,7 +603,7 @@ textarea:focus{
 #answer-content::-webkit-scrollbar-thumb{ background:rgba(79,163,217,0.2); border-radius:999px; }
 #answer-content::-webkit-scrollbar-thumb:hover{ background:rgba(79,163,217,0.4); }
 
-.zoom-provinsi {
+.zoom-provinsi, .zoom-kabupaten {
     color: #7dd3fc;
     text-decoration: underline;
     text-decoration-color: rgba(125, 211, 252, 0.4);
@@ -612,7 +612,7 @@ textarea:focus{
     cursor: pointer;
 }
 
-.zoom-provinsi:hover {
+.zoom-provinsi:hover, .zoom-kabupaten:hover {
     color: #bae6fd;
     text-decoration-color: #bae6fd;
 }

@@ -22,7 +22,19 @@ async function sendQuestion(){
         });
 
         const data = await response.json();
-        answer.innerHTML = data.answer.replace(/\n/g, "<br>");
+        
+        // FUNGSI PENYAPU OVERLAP HYPERLINK
+        // Mencari pola "KABUPATEN/KOTA [Nama] [Angka] events" secara case-insensitive
+        let finalAnswer = data.answer.replace(/(KABUPATEN|KOTA|Kabupaten|Kota)\s+(.+?)(?=\s+\d+\s+events)/ig, function(match, awalan, namaKotor) {
+            // 1. Bersihkan nama dari tag <a> provinsi yang salah sasaran
+            let namaBersih = namaKotor.replace(/<[^>]+>/g, '').trim();
+            namaBersih = namaBersih.replace(/\s+/g, ' '); // Normalisasi spasi
+            
+            // 2. Bungkus ulang menjadi tautan kabupaten yang utuh
+            return `<a href="#" class="zoom-kabupaten" data-nama="${namaBersih}">${awalan} ${namaBersih}</a>`;
+        });
+        
+        answer.innerHTML = finalAnswer.replace(/\n/g, "<br>");
     }
     catch(error){
         answer.innerHTML = "Gagal terhubung ke backend.";
@@ -100,7 +112,7 @@ function closeAnswer(){
     }
 }
 
-// Menangkap klik pada hyperlink provinsi yang dihasilkan backend
+// Menangkap klik pada hyperlink provinsi & kabupaten yang dihasilkan backend
 document.getElementById("answer-content").addEventListener("click", function(event) {
     if (event.target && event.target.classList.contains("zoom-provinsi")) {
         event.preventDefault(); 
@@ -112,6 +124,19 @@ document.getElementById("answer-content").addEventListener("click", function(eve
             mapIframe.contentWindow.postMessage({
                 tipe: "ZOOM_PROV",
                 provinsi: namaProvinsi
+            }, "*");
+        }
+    } 
+    else if (event.target && event.target.classList.contains("zoom-kabupaten")) {
+        event.preventDefault(); 
+        
+        const namaKabupaten = event.target.getAttribute("data-nama");
+        const mapIframe = document.querySelector(".map-iframe");
+        
+        if (mapIframe && mapIframe.contentWindow) {
+            mapIframe.contentWindow.postMessage({
+                tipe: "ZOOM_KAB",
+                kabupaten: namaKabupaten
             }, "*");
         }
     }
