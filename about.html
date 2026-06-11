@@ -5,64 +5,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - SafeZone</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
 <header class="header">
-
     <a href="index.html" class="logo">
         <img src="assets/logo-pu.png" class="logo-icon" alt="Logo PU">
         <span class="logo-text">SAFEZONE</span>
     </a>
-
     <nav class="navbar">
         <a href="index.html">Home</a>
         <a href="dashboard.html">Dashboard</a>
         <a href="guide.html">Guide</a>
         <a href="about.html" class="active">About</a>
     </nav>
-
 </header>
 
-<section class="about-section">
-
-    <div class="section-header">
+<!-- HERO -->
+<section class="about-hero">
+    <div class="about-hero-inner">
         <span class="section-tag">OUR TEAM</span>
-        <h1>Meet The Development Team</h1>
+        <h1>Meet The<br>Development Team</h1>
         <p>
             SafeZone was developed as an AI-powered disaster risk analytics platform
-            combining geospatial technology, artificial intelligence, and historical disaster data.
+            combining geospatial technology, artificial intelligence,
+            and historical disaster data.
         </p>
     </div>
+    <div class="about-divider">
+        <span></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <span></span>
+    </div>
+</section>
 
-    <div class="team-grid">
+<!-- TEAM -->
+<section class="team-section">
+    <div class="team-grid-4">
 
-        <div class="team-card">
-            <img src="assets/team/2.jpeg" alt="Member">
-            <h3>Dimas Sigit Dewandaru</h3>
-            <span>Leading data-driven solutions for disaster risk reduction and urban infrastructure resilience. Ministry of Public Works, Indonesia. Computer Science & Urban Planning Expert committed to safer, smarter cities</span>
+        <div class="member-item">
+            <div class="member-avatar-wrap">
+                <img src="assets/team/2.png" alt="Dimas Sigit Dewandaru" class="member-avatar"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="member-avatar-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                    </svg>
+                </div>
+                <div class="member-avatar-ring"></div>
+            </div>
+            <h3 class="member-name">Dimas Sigit Dewandaru</h3>
+            <span class="member-role">Data Solutions Lead</span>
+            <p class="member-desc">
+                Leading data-driven solutions for disaster risk reduction and urban infrastructure
+                resilience at the Ministry of Public Works, Indonesia.
+            </p>
         </div>
 
-        <div class="team-card">
-            <img src="assets/team/1.jpeg" alt="Member">
-            <h3>Khoirunnisaa Ronaa Fairuuz</h3>
-            <span>Expert Surveyor & Mapping Specialist | Data Scientist | Geospatial Database & Data Engineer. Leveraging machine learning and disaster management solutions through advanced geospatial analytics.</span>
+        <div class="member-item">
+            <div class="member-avatar-wrap">
+                <img src="assets/team/4.png" alt="Amalia Siti Rohmah" class="member-avatar"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="member-avatar-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                    </svg>
+                </div>
+                <div class="member-avatar-ring"></div>
+            </div>
+            <h3 class="member-name">Amalia Siti Rohmah</h3>
+            <span class="member-role">Infrastructure Analysis Lead</span>
+            <p class="member-desc">
+                Heading the Disaster Infrastructure Analysis Division at the Ministry
+                of Public Works Indonesia, driving data intelligence strategies for
+                national infrastructure resilience and disaster preparedness.
+            </p>
         </div>
 
-        <div class="team-card">
-            <img src="assets/team/3.jpeg" alt="Member">
-            <h3>Muhammad Rafif Setyo Nugroho</h3>
-            <span>Geodesy & Geomatics Engineering Student, ITB | Geospatial Modeler | Machine Learning Researcher. Passionate about advancing disaster analysis, hydrography, and geospatial intelligence through data-driven solutions.</span>
+        <div class="member-item">
+            <div class="member-avatar-wrap">
+                <img src="assets/team/1.png" alt="Khoirunnisaa Ronaa Fairuuz" class="member-avatar"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="member-avatar-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                    </svg>
+                </div>
+                <div class="member-avatar-ring"></div>
+            </div>
+            <h3 class="member-name">Khoirunnisaa Ronaa Fairuuz</h3>
+            <span class="member-role">Geospatial & Data Engineer</span>
+            <p class="member-desc">
+                Expert Surveyor and Mapping Specialist leveraging machine learning
+                and geospatial analytics for disaster management solutions.
+            </p>
+        </div>
+
+        <div class="member-item">
+            <div class="member-avatar-wrap">
+                <img src="assets/team/3.png" alt="Muhammad Rafif Setyo Nugroho" class="member-avatar"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="member-avatar-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                    </svg>
+                </div>
+                <div class="member-avatar-ring"></div>
+            </div>
+            <h3 class="member-name">Muhammad Rafif Setyo Nugroho</h3>
+            <span class="member-role">ML Researcher & Geodesy</span>
+            <p class="member-desc">
+                Geodesy & Geomatics Engineering Student, ITB. Passionate about
+                disaster analysis, hydrography, and geospatial intelligence.
+            </p>
         </div>
 
     </div>
-
 </section>
 
 <footer>
