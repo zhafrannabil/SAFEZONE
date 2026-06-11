@@ -113,6 +113,7 @@ function closeAnswer(){
 }
 
 // Menangkap klik pada hyperlink provinsi & kabupaten yang dihasilkan backend
+// Menangkap klik pada hyperlink provinsi & kabupaten yang dihasilkan backend
 document.getElementById("answer-content").addEventListener("click", function(event) {
     if (event.target && event.target.classList.contains("zoom-provinsi")) {
         event.preventDefault(); 
@@ -130,7 +131,25 @@ document.getElementById("answer-content").addEventListener("click", function(eve
     else if (event.target && event.target.classList.contains("zoom-kabupaten")) {
         event.preventDefault(); 
         
-        const namaKabupaten = event.target.getAttribute("data-nama");
+        let namaKabupaten = event.target.getAttribute("data-nama");
+        
+        // --- TAMBAHAN KOREKSI KHUSUS DKI JAKARTA ---
+        // Menyelaraskan teks hipertaut dengan format 'namobj' di GeoJSON
+        const koreksiJakarta = {
+            "jakarta barat": "Kota Adm. Jakarta Barat",
+            "jakarta pusat": "Kota Adm. Jakarta Pusat",
+            "jakarta selatan": "Kota Adm. Jakarta Selatan",
+            "jakarta timur": "Kota Adm. Jakarta Timur",
+            "jakarta utara": "Kota Adm. Jakarta Utara",
+            "kepulauan seribu": "Kab. Adm. Kepulauan Seribu"
+        };
+        
+        const cekNamaLower = namaKabupaten.toLowerCase();
+        if (koreksiJakarta[cekNamaLower]) {
+            namaKabupaten = koreksiJakarta[cekNamaLower];
+        }
+        // ------------------------------------------
+
         const mapIframe = document.querySelector(".map-iframe");
         
         if (mapIframe && mapIframe.contentWindow) {
